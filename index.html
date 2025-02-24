@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คำนวณคาร์โบไฮเดรต</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>เครื่องคำนวณคาร์โบไฮเดรต</h2>
+        <label for="food">ชื่ออาหาร:</label>
+        <input type="text" id="food" placeholder="เช่น ข้าวสวย">
+        <label for="amount">ปริมาณ (กรัม):</label>
+        <input type="number" id="amount" placeholder="เช่น 100">
+        <button onclick="calculateCarbs()">คำนวณ</button>
+        <h3 id="result">คาร์โบไฮเดรต: - กรัม</h3>
+    </div>
+    <script>
+        function calculateCarbs() {
+            let food = document.getElementById("food").value;
+            let amount = parseFloat(document.getElementById("amount").value);
+            let carbsPerGram = { "ข้าวสวย": 0.28, "ขนมปัง": 0.50, "กล้วย": 0.23 };if (food in carbsPerGram) {
+            let carbAmount = (carbsPerGram[food] * amount).toFixed(2);
+            document.getElementById("result").innerText = คาร์โบไฮเดรต: ${carbAmount} กรัม;
+        } else {
+            document.getElementById("result").innerText = "ไม่มีข้อมูลสำหรับอาหารนี้";
+        }
+    }
+</script>
+
+</body>
+</html>
